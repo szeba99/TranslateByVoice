@@ -1,9 +1,9 @@
 # TranslateByVoice
 
-Step one - Press the hotkey
-Step two - Read the foreign text you don't understand
-Step three - Wait a bit
-Step four - Listen to the translation
+- Step one - Press the hotkey
+- Step two - Read the foreign text (via microphone) you don't understand
+- Step three - Wait a bit
+- Step four - Listen to the translation
 
 # Configuring
 
@@ -18,3 +18,6 @@ You can also set a custom hotkey, the python keyboard library is used for this.
 I had to use different version of PyAudio and maybe something else, because something didn't work, I forgot which, but the correct versions are used in the build,
 which is located in the "dist" directory.
 
+# Notes
+
+I used SpeechRecognition with Google, not sure how many times it can be used, next time I or anyone modifies the project, other oppurtunities than Google should be added probably.
