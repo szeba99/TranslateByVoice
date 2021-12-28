@@ -6,15 +6,21 @@ import keyboard
 from time import sleep
 import subprocess
 
+datafile = open("settings.json", "r", encoding="utf-8")
+settings = json.load(datafile)
+datafile.close
+hotkey = settings["hotkey"]
+print(hotkey)
 
 
 def TranslateByVoice():
+    global hotkey
     translator = Translator(service_urls=[
         'translate.google.com',
         'translate.google.co.kr',
         ])
 
-    datafile = open("settings.json", "r")
+    datafile = open("settings.json", "r", encoding="utf-8")
     settings = json.load(datafile)
     datafile.close
 
@@ -22,6 +28,7 @@ def TranslateByVoice():
     destination_language = settings["destination_language"]
     duration = settings["duration"]
     service = settings["service"]
+    hotkey = settings["hotkey"]
 
     #data, samplerate = soundfile.read('speech.wav')
     #soundfile.write('speech.wav', data, samplerate, subtype='PCM_16')
@@ -66,5 +73,5 @@ def TranslateByVoice():
 
     ##############################################################################
 
-keyboard.add_hotkey('ctrl+alt+í', TranslateByVoice)
+keyboard.add_hotkey(f'{hotkey}', TranslateByVoice)
 keyboard.wait()
